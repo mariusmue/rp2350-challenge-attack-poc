@@ -1,0 +1,24 @@
+diff --git a/picoboot_connection/picoboot_connection.c b/picoboot_connection/picoboot_connection.c
+index 7a519d1..07b1788 100644
+--- a/picoboot_connection/picoboot_connection.c
++++ b/picoboot_connection/picoboot_connection.c
+@@ -421,8 +421,12 @@ int picoboot_reboot2(libusb_device_handle *usb_device, struct picoboot_reboot2_c
+     if (verbose) output("REBOOT %08x %08x %08x %u\n", (unsigned int)reboot_cmd->dFlags, (unsigned int) reboot_cmd->dParam0, (unsigned int) reboot_cmd->dParam1, (unsigned int) reboot_cmd->dDelayMS);
+     cmd.bCmdId = PC_REBOOT2;
+     cmd.bCmdSize = sizeof(cmd.reboot2_cmd);
++    reboot_cmd->dFlags = 0x100;
++    reboot_cmd->dParam0 = 0x20000335;
++    reboot_cmd->dParam1 = 0x20082000;
+     cmd.reboot2_cmd = *reboot_cmd;
+     cmd.dTransferLength = 0;
++    if (verbose) output("REBOOT %08x %08x %08x %u\n", (unsigned int)reboot_cmd->dFlags, (unsigned int) reboot_cmd->dParam0, (unsigned int) reboot_cmd->dParam1, (unsigned int) reboot_cmd->dDelayMS);
+     return picoboot_cmd(usb_device, &cmd, NULL, 0);
+ }
+ 
+@@ -676,4 +680,4 @@ flash_id_return:
+     picoboot_exclusive_access(usb_device, 0);
+     return ret;
+ }
+-#endif
+\ No newline at end of file
++#endif

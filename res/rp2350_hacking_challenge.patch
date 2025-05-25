@@ -1,0 +1,15 @@
+diff --git a/lock_chip.sh b/lock_chip.sh
+index b33c926..a7e1506 100755
+--- a/lock_chip.sh
++++ b/lock_chip.sh
+@@ -8,8 +8,8 @@ if [ "$user_input" != "PLEASE LOCK" ]; then
+     exit 1
+ fi
+ 
+-# Disable debugging features
+-picotool otp set OTP_DATA_CRIT1.DEBUG_DISABLE 1 
++# Disable debugging features -- SKIPPED FOR GLITCH SIMULATION!
++# picotool otp set OTP_DATA_CRIT1.DEBUG_DISABLE 1 
+ # Disable other boot keys
+ picotool otp set OTP_DATA_BOOT_FLAGS1.KEY_INVALID 0xe
+ # Enable glitch detector

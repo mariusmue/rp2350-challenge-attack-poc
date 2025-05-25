@@ -1,0 +1,15 @@
+[submodule "deps/picotool"]
+	path = deps/picotool
+	url = https://github.com/raspberrypi/picotool.git
+[submodule "deps/pico-sdk"]
+	path = deps/pico-sdk
+	url = https://github.com/raspberrypi/pico-sdk.git
+[submodule "deps/rp2350_hacking_challenge"]
+	path = deps/rp2350_hacking_challenge
+	url = https://github.com/raspberrypi/rp2350_hacking_challenge
+[submodule "deps/rp2350-security-playground-demo"]
+	path = deps/rp2350-security-playground-demo
+	url = https://github.com/hextreeio/rp2350-security-playground-demo.git
+[submodule "deps/openocd"]
+	path = deps/openocd
+	url = https://github.com/raspberrypi/openocd.git
